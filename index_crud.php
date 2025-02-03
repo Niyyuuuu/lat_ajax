@@ -1,5 +1,5 @@
 <?php
-include 'backend/database.php';
+include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
