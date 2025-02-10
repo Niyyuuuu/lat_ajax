@@ -1,37 +1,50 @@
 <?php
-include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
+include 'backend/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>User Data</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="ajax/ajax.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Students Data</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="ajax/ajax.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse" style="background-color:rgb(0, 0, 0);">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Students Data</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Manage Students</a></li>
+      <li><a href="http://localhost/lat_ajax/ajax_asli/index_crud.php">Manage Users</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
 <p id="success"></p>
-	<div class="table-wrapper">
-		<div class="table-title">
-			<div class="row">
-				<div class="col-sm-6">
-					<h2>Manage <b>Users</b></h2>
-				</div>
-				<div class="col-sm-6">
-					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">🍳</i> <span>Add New User</span></a>
-					<a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons"></i> <span>Delete</span></a>						
-				</div>
-			</div>
-		</div>
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Manage <b>Students</b></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">➕</i> <span>Add New Student</span></a>
+                    <a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons">❌</i> <span>Delete</span></a>                       
+                </div>
+            </div>
+        </div>
+<!-- rest of your code -->
+
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -42,17 +55,19 @@ include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 						</span>
 					</th>
 					<th>NO</th>
-					<th>NAME</th>
-					<th>EMAIL</th>
-					<th>PHONE</th>
-					<th>CITY</th>
-					<th>ACTION</th>
+					<th>NIS</th>
+					<th>NAMA</th>
+					<th>KELAS</th>
+					<th>JURUSAN</th>
+					<th>JENIS KELAMIN</th>
+					<th>ALAMAT</th>
+					<th>AKSI</th>
 				</tr>
 			</thead>
 			<tbody>
 			
 			<?php
-			$result = mysqli_query($conn,"SELECT * FROM user_data");
+			$result = mysqli_query($conn,"SELECT * FROM siswa_data");
 				$i=1;
 				while($row = mysqli_fetch_array($result)) {
 			?>
@@ -64,18 +79,22 @@ include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 						</span>
 					</td>
 				<td><?php echo $i; ?></td>
-				<td><?php echo $row["name"]; ?></td>
-				<td><?php echo $row["email"]; ?></td>
-				<td><?php echo $row["phone"]; ?></td>
-				<td><?php echo $row["city"]; ?></td>
+				<td><?php echo $row["nis"]; ?></td>
+				<td><?php echo $row["nama"]; ?></td>
+				<td><?php echo $row["kelas"]; ?></td>
+				<td><?php echo $row["jurusan"]; ?></td>
+				<td><?php echo $row["jk"]; ?></td>
+				<td><?php echo $row["alamat"]; ?></td>
 				<td>
 					<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 						<i class="material-icons update" data-toggle="tooltip" 
 						data-id="<?php echo $row["id"]; ?>"
-						data-name="<?php echo $row["name"]; ?>"
-						data-email="<?php echo $row["email"]; ?>"
-						data-phone="<?php echo $row["phone"]; ?>"
-						data-city="<?php echo $row["city"]; ?>"
+						data-nis="<?php echo $row["nis"]; ?>"
+						data-nama="<?php echo $row["nama"]; ?>"
+						data-kelas="<?php echo $row["kelas"]; ?>"
+						data-jurusan="<?php echo $row["jurusan"]; ?>"
+						data-jk="<?php echo $row["jk"]; ?>"
+						data-alamat="<?php echo $row["alamat"]; ?>"
 						title="Edit"></i>
 					</a>
 					<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
@@ -97,27 +116,35 @@ include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 		<div class="modal-content">
 			<form id="user_form">
 				<div class="modal-header">						
-					<h4 class="modal-title">Add User</h4>
+					<h4 class="modal-title">Add Student</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				</div>
 				<div class="modal-body">					
 					<div class="form-group">
-						<label>NAME</label>
-						<input type="text" id="name" name="name" class="form-control" required>
+						<label>NIS</label>
+						<input type="text" id="nis" name="nis" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>EMAIL</label>
-						<input type="email" id="email" name="email" class="form-control" required>
+						<label>Nama</label>
+						<input type="text" id="nama" name="nama" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>PHONE</label>
-						<input type="phone" id="phone" name="phone" class="form-control" required>
+						<label>Kelas</label>
+						<input type="text" id="kelas" name="kelas" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>CITY</label>
-						<input type="city" id="city" name="city" class="form-control" required>
-					</div>					
-				</div>
+						<label>Jurusan</label>
+						<input type="text" id="jurusan" name="jurusan" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<input type="text" id="jk" name="jk" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Alamat</label>
+						<input type="text" id="alamat" name="alamat" class="form-control" required>
+					</div>
+					</div>
 				<div class="modal-footer">
 					<input type="hidden" value="1" name="type">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -133,27 +160,35 @@ include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 		<div class="modal-content">
 			<form id="update_form">
 				<div class="modal-header">						
-					<h4 class="modal-title">Edit User</h4>
+					<h4 class="modal-title">Edit Student</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				</div>
 				<div class="modal-body">
-					<input type="hidden" id="id_u" name="id" class="form-control" required>					
+					<input type="hidden" id="id_u" name="id" class="form-control" required>
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" id="name_u" name="name" class="form-control" required>
+						<label>NIS</label>
+						<input type="text" id="nis_u" name="nis" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Email</label>
-						<input type="email" id="email_u" name="email" class="form-control" required>
+						<label>Nama</label>
+						<input type="text" id="nama_u" name="nama" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>PHONE</label>
-						<input type="phone" id="phone_u" name="phone" class="form-control" required>
+						<label>Kelas</label>
+						<input type="email" id="kelas_u" name="kelas" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>City</label>
-						<input type="city" id="city_u" name="city" class="form-control" required>
-					</div>					
+						<label>Jurusan</label>
+						<input type="phone" id="jurusan_u" name="jurusan" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<input type="city" id="jk_u" name="jk" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Alamat</label>
+						<input type="city" id="alamat_u" name="alamat" class="form-control" required>
+					</div>			
 				</div>
 				<div class="modal-footer">
 				<input type="hidden" value="2" name="type">
@@ -170,7 +205,7 @@ include 'c:/xampp/htdocs/lat_ajax/backend/database.php';
 		<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-					<h4 class="modal-title">Delete User</h4>
+					<h4 class="modal-title">Delete Student</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				</div>
 				<div class="modal-body">

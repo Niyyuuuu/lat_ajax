@@ -2,12 +2,13 @@
 include 'database.php';
 if(count($_POST)>0){
 	if($_POST['type']==1){
-		$name=$_POST['name'];
-		$email=$_POST['email'];
-		$phone=$_POST['phone'];
-		$city=$_POST['city'];
-		$sql = "INSERT INTO user_data( name, email,phone,city) 
-		VALUES ('$name','$email','$phone','$city')";
+		$nis=$_POST['nis'];
+		$nama=$_POST['nama'];
+		$kelas=$_POST['kelas'];
+		$jurusan=$_POST['jurusan'];
+		$jk=$_POST['jk'];
+		$alamat=$_POST['alamat'];
+		$sql = "INSERT INTO siswa_data ( NIS, nama, kelas, jurusan, jk, alamat) VALUES ('$nis','$nama','$kelas','$jurusan','$jk','$alamat')";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 
@@ -20,11 +21,13 @@ if(count($_POST)>0){
 if(count($_POST)>0){
 	if($_POST['type']==2){
 		$id=$_POST['id'];
-		$name=$_POST['name'];
-		$email=$_POST['email'];
-		$phone=$_POST['phone'];
-		$city=$_POST['city'];
-		$sql = "UPDATE user_data SET name='$name',email='$email',phone='$phone',city='$city' WHERE id=$id";
+		$nis=$_POST['nis'];
+		$nama=$_POST['nama'];
+		$kelas=$_POST['kelas'];
+		$jurusan=$_POST['jurusan'];
+		$jk=$_POST['jk'];
+		$alamat=$_POST['alamat'];
+		$sql = "UPDATE siswa_data SET NIS='$nis', nama='$nama', kelas='$kelas', jurusan='$jurusan', jk='$jk', alamat='$alamat' WHERE id=$id";
 		if (mysqli_query($conn, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 
@@ -37,7 +40,7 @@ if(count($_POST)>0){
 if(count($_POST)>0){
 	if($_POST['type']==3){
 		$id=$_POST['id'];
-		$sql = "DELETE FROM user_data WHERE id=$id ";
+		$sql = "DELETE FROM siswa_data WHERE id=$id ";
 		if (mysqli_query($conn, $sql)) {
 			echo $id;
 		} 
@@ -50,7 +53,7 @@ if(count($_POST)>0){
 if(count($_POST)>0){
 	if($_POST['type']==4){
 		$id=$_POST['id'];
-		$sql = "DELETE FROM user_data WHERE id in ($id)";
+		$sql = "DELETE FROM siswa_data WHERE id in ($id)";
 		if (mysqli_query($conn, $sql)) {
 			echo $id;
 		} 

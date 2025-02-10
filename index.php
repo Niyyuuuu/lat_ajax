@@ -11,26 +11,29 @@
 	  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
 	</div>
 	<form id="fupForm" name="form1" method="post">
-		<div class="form-group">
-			<label for="email">Name:</label>
-			<input type="text" class="form-control" id="name" placeholder="Name" name="name">
+	<div class="form-group">
+			<label for="nis">NIS:</label>
+			<input type="text" class="form-control" id="nis" placeholder="Name" name="nis">
 		</div>
 		<div class="form-group">
-			<label for="pwd">Email:</label>
-			<input type="email" class="form-control" id="email" placeholder="Email" name="email">
+			<label for="nama">Nama:</label>
+			<input type="text" class="form-control" id="nama" placeholder="Nama" name="nama">
 		</div>
 		<div class="form-group">
-			<label for="pwd">Phone:</label>
-			<input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
+			<label for="kelas">Kelas:</label>
+			<input type="text" class="form-control" id="kelas" placeholder="Kelas" name="kelas">
 		</div>
-		<div class="form-group" >
-			<label for="pwd">City:</label>
-			<select name="city" id="city" class="form-control">
-				<option value="">Select</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Pune">Pune</option>
-			</select>
+		<div class="form-group">
+			<label for="jurusan">Jurusan:</label>
+			<input type="text" class="form-control" id="jurusan" placeholder="Jurusan" name="jurusan">
+		</div>
+		<div class="form-group">
+			<label for="jk">Jenis Kelamin:</label>
+			<input type="text" class="form-control" id="jk" placeholder="Jenis Kelamin" name="jk">
+		</div>
+		<div class="form-group">
+			<label for="alamat">Alamat:</label>
+			<input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat">
 		</div>
 		<input type="button" name="save" class="btn btn-primary" value="Save to database" id="butsave">
 	</form>

@@ -19,15 +19,20 @@ $(document).on('click','#btn-add',function(e) {
 });
 $(document).on('click','.update',function(e) {
     var id=$(this).attr("data-id");
-    var name=$(this).attr("data-name");
-    var email=$(this).attr("data-email");
-    var phone=$(this).attr("data-phone");
-    var city=$(this).attr("data-city");
+    var nis=$(this).attr("data-nis");
+    var nama=$(this).attr("data-nama");
+    var kelas=$(this).attr("data-kelas");
+    var jurusan=$(this).attr("data-jurusan");
+    var jk=$(this).attr("data-jk");
+    var alamat=$(this).attr("data-alamat");
+
     $('#id_u').val(id);
-    $('#name_u').val(name);
-    $('#email_u').val(email);
-    $('#phone_u').val(phone);
-    $('#city_u').val(city);
+    $('#nama_u').val(nama);
+    $('#nis_u').val(nis);
+    $('#kelas_u').val(kelas);
+    $('#jurusan_u').val(jurusan);
+    $('#jk_u').val(jk);
+    $('#alamat_u').val(alamat);
 });
 
 $(document).on('click','#update',function(e) {
@@ -119,6 +124,6 @@ $(document).ready(function(){
     checkbox.click(function(){
         if(!this.checked){
             $("#selectAll").prop("checked", false);
-        }
-    });
+        }
+    });
 });

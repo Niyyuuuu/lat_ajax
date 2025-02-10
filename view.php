@@ -15,10 +15,12 @@
 	<table class="table table-bordered table-sm" >
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-		<th>City</th>
+        <th>NIS</th>
+        <th>Nama</th>
+        <th>Kelas</th>
+        <th>Jurusan</th>
+        <th>Jenis Kelamin</th>
+        <th>Alamat</th>
       </tr>
     </thead>
     <tbody id="table">
